@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="Rechtecke">
-    <output-path>$PROJECT_DIR$/../bins/Rechtecke</output-path>
+    <output-path>$PROJECT_DIR$/../bins/</output-path>
     <root id="archive" name="Rechtecke.jar">
       <element id="module-output" name="Schule" />
       <element id="directory" name="META-INF">
