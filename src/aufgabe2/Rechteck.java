@@ -39,12 +39,12 @@ public class Rechteck extends JComponent{
     }
     
     private void fillColorMap() {
-    	colorMap.put("black", Color.black);
-    	colorMap.put("green", Color.green);
-    	colorMap.put("blue", Color.blue);
-    	colorMap.put("red", Color.red);
+    	colorMap.put("schwarz", Color.black);
+    	colorMap.put("gruen", Color.green);
+    	colorMap.put("blau", Color.blue);
+    	colorMap.put("rot", Color.red);
     	colorMap.put("cyan", Color.cyan);
-    	colorMap.put("yellow", Color.yellow);
+    	colorMap.put("gelb", Color.yellow);
     }
 
     public int getBreite() {

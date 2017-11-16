@@ -40,11 +40,14 @@ public class RechteckMain extends JFrame{
     }
     
     private void addRechteck(int x, int y) {
-    	Rechteck newRechteck = new Rechteck(normBreite, normHoehe, x, y, Color.CYAN);
-    	newRechteck.anpassen();
-    	newRechteck.addMouseListener(new Maus());
-    	this.add(newRechteck);
-    	this.repaint();
+        int res = JOptionPane.showConfirmDialog(null, "Moechtest du ein Rechteck hinzufuegen?");
+        if(res == 0){
+            Rechteck newRechteck = new Rechteck(normBreite, normHoehe, x, y, Color.CYAN);
+            newRechteck.anpassen();
+            newRechteck.addMouseListener(new Maus());
+            this.add(newRechteck);
+            this.repaint();
+        }
     }
     
     private void removeRechteck(Rechteck source){
