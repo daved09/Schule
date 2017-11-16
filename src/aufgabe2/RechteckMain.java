@@ -31,8 +31,8 @@ public class RechteckMain extends JFrame{
     }
 
     private void addRechtecke(){
-        Rechteck recht1 = new Rechteck(100, 100, 20, 20);
-        Rechteck recht2 = new Rechteck(100, 100, 400, 20, Color.GREEN);
+        Rechteck recht1 = new Rechteck(normBreite, normHoehe, 20, 20);
+        Rechteck recht2 = new Rechteck(normBreite, normHoehe, 400, 20, Color.GREEN);
         recht1.addMouseListener(new Maus());
         recht2.addMouseListener(new Maus());
         this.add(recht1);
@@ -41,6 +41,7 @@ public class RechteckMain extends JFrame{
     
     private void addRechteck(int x, int y) {
     	Rechteck newRechteck = new Rechteck(normBreite, normHoehe, x, y, Color.CYAN);
+    	newRechteck.anpassen();
     	newRechteck.addMouseListener(new Maus());
     	this.add(newRechteck);
     	this.repaint();
@@ -64,8 +65,14 @@ public class RechteckMain extends JFrame{
         	if(e.getSource() instanceof Rechteck) {
                 Rechteck source = (Rechteck)e.getSource();
         		if(e.getButton() == 1) {
-                    source.anpassen();
-                    repaint();
+        		    int res = JOptionPane.showConfirmDialog(null,"Moechtest du das Rechteck anpassen?");
+        		    if(res==0){
+                        source.anpassen();
+                        repaint();
+                    }
+                    else if(res == 1){
+        		        removeRechteck(source);
+                    }
         		}
         		if(e.getButton() == 2) {
         			removeRechteck(source);
