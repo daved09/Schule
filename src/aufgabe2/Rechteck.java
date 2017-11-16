@@ -45,6 +45,8 @@ public class Rechteck extends JComponent{
     	colorMap.put("rot", Color.red);
     	colorMap.put("cyan", Color.cyan);
     	colorMap.put("gelb", Color.yellow);
+    	colorMap.put("grau", Color.gray);
+    	colorMap.put("braun", Color.decode("#994C00"));
     }
 
     public int getBreite() {
