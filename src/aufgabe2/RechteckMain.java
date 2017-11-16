@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class RechteckMain extends JFrame{
 
@@ -13,8 +13,7 @@ public class RechteckMain extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1755775870637219266L;
-	private Rechteck recht1, recht2;
-	private static final int normBreite = 100, normHoehe = 100;
+    private static final int normBreite = 100, normHoehe = 100;
 
     public static void main(String[] args){
         RechteckMain main = new RechteckMain();
@@ -26,14 +25,14 @@ public class RechteckMain extends JFrame{
     private void init(){
         this.setTitle("Rechteck");
         this.setSize(1200,800);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.addMouseListener(new Maus());
     }
 
     private void addRechtecke(){
-        recht1 = new Rechteck(100,100, 20, 20);
-        recht2 = new Rechteck(100,100, 400,20, Color.GREEN);
+        Rechteck recht1 = new Rechteck(100, 100, 20, 20);
+        Rechteck recht2 = new Rechteck(100, 100, 400, 20, Color.GREEN);
         recht1.addMouseListener(new Maus());
         recht2.addMouseListener(new Maus());
         this.add(recht1);
@@ -60,14 +59,12 @@ public class RechteckMain extends JFrame{
 
     private class Maus implements MouseListener{
         int altX,altY;
-        Color alt;
         @Override
         public void mouseClicked(MouseEvent e) {
         	if(e.getSource() instanceof Rechteck) {
                 Rechteck source = (Rechteck)e.getSource();
         		if(e.getButton() == 1) {
                     source.anpassen();
-                    alt = source.getColor();
                     repaint();
         		}
         		if(e.getButton() == 2) {

@@ -6,7 +6,13 @@ public class Fahrzeug {
 	private float zuladungsGewicht, kilometerPreis;
 
 	public Fahrzeug(){
-		
+		this("Fahrzeug", 100, 1.00f);
+	}
+
+	public Fahrzeug(String name, float zuladungsGewicht, float kilometerPreis){
+		setName(name);
+		setZuladungsGewicht(zuladungsGewicht);
+		setKilometerPreis(kilometerPreis);
 	}
 
 
