@@ -53,6 +53,7 @@ public class RechteckMain extends JFrame{
     private void removeRechteck(Rechteck source){
     	this.remove(source);
     	this.repaint();
+    	System.gc();
     }
     
 
