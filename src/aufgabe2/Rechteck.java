@@ -2,8 +2,11 @@ package aufgabe2;
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Rechteck extends JComponent{
 
@@ -14,6 +17,7 @@ public class Rechteck extends JComponent{
 	private int breite, hoehe, posx, posy;
     private Color color, bak;
     private Map<String, Color> colorMap = new HashMap<>();
+    private boolean run;
 
     public Rechteck() {
     	this(100,100);
@@ -138,7 +142,13 @@ public class Rechteck extends JComponent{
     
     private Color getColorFromGui() {
     	String color = JOptionPane.showInputDialog("Neue Farbe eingeben ("+colorMap.keySet()+").");
-    	if(!color.equals("")) {
+    	if(color.equals("run")){
+    	    run = true;
+    	    Thread th = new Thread(new colorThread());
+    	    th.start();
+    	    return Color.white;
+        }
+    	else if(!color.equals("")) {
     		return colorMap.get(color);
     	}
     	else {
@@ -163,4 +173,38 @@ public class Rechteck extends JComponent{
 	public void setBak(Color bak) {
 		this.bak = bak;
 	}
+
+	private int getRandom(int min, int max){
+        int rand = -1;
+        while(rand < min){
+            rand = (int)(Math.random()*max);
+        }
+        return rand;
+    }
+
+
+	private class colorThread implements Runnable{
+        @Override
+        public void run() {
+            Color[] colors = colorMap.values().toArray(new Color[colorMap.values().size()]);
+            int random = 0, old = 0;
+            try{
+                while (run){
+                    while(random == old){
+                        random = getRandom(0, colors.length);
+                        System.out.println(random);
+                    }
+                    old = random;
+                    color = colors[random];
+                    repaint();
+                    Thread.sleep(100);
+                }
+                System.out.println("finish");
+            }
+            catch (Exception e){
+
+            }
+        }
+    }
+
 }
