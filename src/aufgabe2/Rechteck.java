@@ -120,7 +120,7 @@ public class Rechteck extends JComponent{
     public void anpassen(){
     	Color color = this.getColor();
     	int newBreite = getIntegerFromGui("Neue Breite eingeben.", this.getBreite());
-        int newHoehe = getIntegerFromGui("Neue Höhe eingeben.", this.getHoehe());
+        int newHoehe = getIntegerFromGui("Neue Hï¿½he eingeben.", this.getHoehe());
         color = getColorFromGui();
         this.setSize(newBreite, newHoehe);
         this.color = color;
@@ -192,7 +192,6 @@ public class Rechteck extends JComponent{
                 while (run){
                     while(random == old){
                         random = getRandom(0, colors.length);
-                        System.out.println(random);
                     }
                     old = random;
                     color = colors[random];
