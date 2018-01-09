@@ -1,6 +1,5 @@
 package Girokonto;
 
-import org.jetbrains.annotations.NotNull;
 
 public class GiroKonto {
 

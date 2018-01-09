@@ -1,8 +1,11 @@
 package Girokonto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class KontoMain {
 
-    String[] nummern = new String[100];
+    List<String> nummern = new ArrayList<String>();
     Bank kaBank;
 
     public static void main(String[] args){
@@ -15,11 +18,11 @@ public class KontoMain {
         kaBank = new Bank("Karlsruher Bank", "12345678");
         kaBank.neuesKonto("David Bannasch", 0.00);
         kaBank.neuesKonto("Deine Mudda", 3000);
-        nummern[0] = kaBank.getKonten()[0].getNummer();
-        nummern[1] = kaBank.getKonten()[0].getNummer();
-        kaBank.ueberweise(nummern[1], nummern[0], 1200);
+        nummern.add(kaBank.getKonten()[0].getNummer());
+        nummern.add(kaBank.getKonten()[0].getNummer());
+        kaBank.ueberweise(nummern.get(1), nummern.get(0), 1200);
         kaBank.print();
-        kaBank.loescheKonto(nummern[1]);
+        kaBank.loescheKonto(nummern.get(0));
     }
 
     public void doSomething(){
