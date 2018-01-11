@@ -20,13 +20,14 @@ public class Bank {
     }
 
 
-    public void neuesKonto(String inhaber, double guthaben){
+    public String neuesKonto(String inhaber, double guthaben){
         for(int i=0; 0<konten.length;i++){
             if(konten[i] == null){
                 konten[i] = new GiroKonto(inhaber, generateNummer(), guthaben);
-                return;
+                return konten[i].getNummer();
             }
         }
+        return null;
     }
 
     @NotNull
@@ -75,8 +76,8 @@ public class Bank {
     public boolean ueberweise(String quellNummer, String zielNummer, double betrag){
         GiroKonto  kontoQuelle = getKontoByNummer(quellNummer), kontoZiel = getKontoByNummer(zielNummer);
         if ((kontoQuelle != null) && (kontoZiel != null)) {
-            kontoQuelle.setGuthaben(kontoQuelle.getGuthaben()-betrag);
-            kontoZiel.setGuthaben(kontoZiel.getGuthaben()+betrag);
+            kontoQuelle.setGuthaben(kontoQuelle.getGuthaben() - betrag);
+            kontoZiel.setGuthaben(kontoZiel.getGuthaben() + betrag);
             return true;
         }
         return false;

@@ -12,10 +12,6 @@ public class GiroKonto {
         this.guthaben = guthaben;
     }
 
-    public GiroKonto(String inhaber, double guthaben) {
-        this(inhaber, "", guthaben);
-    }
-
     public void print(){
         String out = "Inhaber: "+inhaber+"; Kontonummer: "+nummer+"; Guthaben: "+guthaben;
         System.out.println(out);
