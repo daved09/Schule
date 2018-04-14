@@ -6,7 +6,7 @@ public class Kugel {
 	
 	Scanner sc = new Scanner(System.in);
 	
-	String[] menu = { "1 = Volumen", "2 = Oberfläche", "3 = Beenden" };
+	String[] menu = { "1 = Volumen", "2 = Oberflaeche", "3 = Beenden" };
 	
 	public static void main(String[] args){
 		Kugel kugel = new Kugel();
